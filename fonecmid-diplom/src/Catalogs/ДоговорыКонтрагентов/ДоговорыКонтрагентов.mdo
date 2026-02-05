@@ -117,6 +117,7 @@
   <defaultPresentation>AsDescription</defaultPresentation>
   <editType>InDialog</editType>
   <choiceMode>BothWays</choiceMode>
+  <defaultObjectForm>Catalog.ДоговорыКонтрагентов.Form.ФормаЭлемента</defaultObjectForm>
   <defaultListForm>Catalog.ДоговорыКонтрагентов.Form.ФормаСписка</defaultListForm>
   <attributes uuid="a81d1f8d-ea75-4cec-9742-5970eceda758">
     <name>Организация</name>
@@ -152,11 +153,11 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="e423d026-3388-4688-902a-963a52291b12">
+  <attributes uuid="58fff173-07c4-4a7a-a896-38016404c0b2">
     <name>ВКМ_ПериодДействияДоговора</name>
     <synonym>
       <key>ru</key>
-      <value>период действия договора</value>
+      <value>ВКМ период действия договора</value>
     </synonym>
     <type>
       <types>Date</types>
@@ -170,11 +171,11 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="0ff3a1a9-1bfd-4360-bd88-f4fc08ae9256">
+  <attributes uuid="766b9a80-6616-47bc-bf08-082fc2f2b953">
     <name>ВКМ_СуммаАбонентскойПлаты</name>
     <synonym>
       <key>ru</key>
-      <value>сумма абонентской платы</value>
+      <value>ВКМ сумма абонентской платы</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -189,11 +190,11 @@
     <fullTextSearch>Use</fullTextSearch>
     <dataHistory>Use</dataHistory>
   </attributes>
-  <attributes uuid="a6394253-9dbd-4ba6-9e71-b08aad12f730">
+  <attributes uuid="ddf6b236-be3e-4fba-9d02-1ecfa858f7b1">
     <name>ВКМ_СтоимостьЧасаРаботы</name>
     <synonym>
       <key>ru</key>
-      <value>стоимость часа работы</value>
+      <value>ВКМ стоимость часа работы</value>
     </synonym>
     <type>
       <types>Number</types>
@@ -213,6 +214,15 @@
     <synonym>
       <key>ru</key>
       <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="e11bece6-6997-4cee-9c15-107d7fc8a906">
+    <name>ФормаЭлемента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма элемента</value>
     </synonym>
     <usePurposes>PersonalComputer</usePurposes>
     <usePurposes>MobileDevice</usePurposes>
