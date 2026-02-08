@@ -13,7 +13,6 @@
     <types>CatalogManager.ДоговорыКонтрагентовПрисоединенныеФайлы</types>
     <types>CatalogManager.ОрганизацииПрисоединенныеФайлы</types>
     <types>CatalogManager.ЗаказПокупателяПрисоединенныеФайлы</types>
-    <types>CatalogManager.ВКМ_ОбслуживаниеКлиентовПрисоединенныеФайлы</types>
   </source>
   <event>FormGetProcessing</event>
   <handler>CommonModule.РаботаСФайламиКлиентСервер.ОпределитьФормуПрисоединенногоФайла</handler>
