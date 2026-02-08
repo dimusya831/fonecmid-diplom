@@ -7,9 +7,9 @@
   </synonym>
   <source>
     <types>DocumentObject.ПоступлениеТоваровУслуг</types>
+    <types>CatalogObject.ВКМ_ОбслуживаниеКлиентовПрисоединенныеФайлы</types>
     <types>DocumentObject.РеализацияТоваровУслуг</types>
     <types>DocumentObject.ЗаказПокупателя</types>
   </source>
-  <event>BeforeWrite</event>
   <handler>CommonModule.РаботаСФайлами.УстановитьПометкуУдаленияПрисоединенныхФайловДокументов</handler>
 </mdclass:EventSubscription>
