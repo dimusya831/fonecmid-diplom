@@ -3,7 +3,7 @@
   <name>Документы</name>
   <synonym>
     <key>ru</key>
-    <value>Документы</value>
+    <value>ВКМ_Документы</value>
   </synonym>
   <representation>Auto</representation>
 </mdclass:CommandGroup>
