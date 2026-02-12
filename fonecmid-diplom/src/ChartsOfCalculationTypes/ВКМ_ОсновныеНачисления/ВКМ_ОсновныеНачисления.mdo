@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:ChartOfCalculationTypes xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e80e56f5-f8d1-4cc2-ab99-524d88d96112">
+  <producedTypes>
+    <objectType typeId="feb3c131-7950-4e19-bd21-c8c22667f2e7" valueTypeId="8d104a7c-c9b4-42ef-a75f-2fd298568877"/>
+    <refType typeId="898be486-5262-4b63-8557-c1a83f968bc9" valueTypeId="65b8cad5-2c8c-4075-ae33-d0ac93d68a6c"/>
+    <selectionType typeId="6169cb57-70c4-44a2-aa44-fb3f002837fd" valueTypeId="f7cb79c1-439f-41ab-ae47-522f876c71a7"/>
+    <listType typeId="b5734990-cac9-44bb-94d4-739267edeaaf" valueTypeId="0e613c5f-df6d-45b2-9e20-5e03222ed925"/>
+    <managerType typeId="53d1540e-3491-42e4-bc15-244cc266f7ef" valueTypeId="64761e8b-5a37-4c3f-a0be-e9dce0b9ce67"/>
+    <displacingCalculationTypesType typeId="a98a8149-992f-491a-96a7-0dec28346f0d" valueTypeId="8a6e5e30-d67e-432a-aef9-3f0ee1d2676b"/>
+    <displacingCalculationTypesRowType typeId="dc3cd9ef-cbbf-4016-ac09-23fca07edcda" valueTypeId="fcd46d09-82da-4886-92d0-44bf2f5ea468"/>
+    <baseCalculationTypesType typeId="9eb6b882-c639-420f-a41d-4f34d61e1d83" valueTypeId="51a5287b-08d3-4ec8-b1e0-c6d4fd42e414"/>
+    <baseCalculationTypesRowType typeId="6ccc6c93-812d-47cc-8d95-590fd98613ab" valueTypeId="f0f36736-13a1-445c-ab27-61d5a7a40e14"/>
+    <leadingCalculationTypesType typeId="71c35386-9476-4904-9a76-7051820d4d9c" valueTypeId="40b331a3-5be2-428a-b43c-a5af82c635b4"/>
+    <leadingCalculationTypesRowType typeId="97f8fc86-82d3-42d9-b760-2111b296c073" valueTypeId="b1cfcfaa-10f3-4203-92d4-f23cf0ff8d4b"/>
+  </producedTypes>
+  <name>ВКМ_ОсновныеНачисления</name>
+  <synonym>
+    <key>ru</key>
+    <value>ВКМ основные начисления</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.StandardAttribute.Code</inputByString>
+  <inputByString>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>DontUse</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <codeLength>9</codeLength>
+  <descriptionLength>40</descriptionLength>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+  <dependenceOnCalculationTypes>OnActionPeriod</dependenceOnCalculationTypes>
+  <baseCalculationTypes>ChartOfCalculationTypes.ВКМ_ОсновныеНачисления</baseCalculationTypes>
+  <actionPeriodUse>true</actionPeriodUse>
+</mdclass:ChartOfCalculationTypes>
