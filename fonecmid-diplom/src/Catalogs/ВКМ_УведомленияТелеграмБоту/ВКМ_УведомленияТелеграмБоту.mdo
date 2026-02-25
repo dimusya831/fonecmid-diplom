@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Catalog xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="92c2b3d0-d281-4966-b2fb-5980393e7575">
+  <producedTypes>
+    <objectType typeId="dce6c619-62c1-42f4-9c90-3c3725f1c422" valueTypeId="61f2e711-8679-423a-b57d-9a6cadd2d6a7"/>
+    <refType typeId="f0fb1d77-84f1-43a1-b6f4-39fae07287a4" valueTypeId="83cba6b3-6778-46e7-8ec8-48169121af0c"/>
+    <selectionType typeId="cd2ff6f5-a684-4629-9bb0-57129bd40429" valueTypeId="8418c8d0-0441-466d-a916-d9847b946e6c"/>
+    <listType typeId="a1c4b9d9-c85a-48a9-8d80-f47298e0a393" valueTypeId="ae412e27-c5b8-4656-84b9-6cae14a8e7a9"/>
+    <managerType typeId="5d46e9e8-f20d-4d4c-bc8c-8336825a12ac" valueTypeId="eee447d1-47de-49d0-b0ba-720654cc8f6c"/>
+  </producedTypes>
+  <name>ВКМ_УведомленияТелеграмБоту</name>
+  <synonym>
+    <key>ru</key>
+    <value>Уведомления телеграм боту</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <inputByString>Catalog.ВКМ_УведомленияТелеграмБоту.StandardAttribute.Code</inputByString>
+  <inputByString>Catalog.ВКМ_УведомленияТелеграмБоту.StandardAttribute.Description</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <fullTextSearch>Use</fullTextSearch>
+  <levelCount>2</levelCount>
+  <foldersOnTop>true</foldersOnTop>
+  <codeType>String</codeType>
+  <codeAllowedLength>Variable</codeAllowedLength>
+  <defaultPresentation>AsDescription</defaultPresentation>
+  <editType>InDialog</editType>
+  <choiceMode>BothWays</choiceMode>
+</mdclass:Catalog>
