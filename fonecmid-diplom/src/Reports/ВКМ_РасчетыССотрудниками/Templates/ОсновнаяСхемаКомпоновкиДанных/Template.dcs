@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПриход</dataPath>
+			<field>СуммаПриход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРасход</dataPath>
+			<field>СуммаРасход</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаКонечныйОстаток</dataPath>
+			<field>СуммаКонечныйОстаток</field>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачальныйОстаток</dataPath>
+			<field>СуммаНачальныйОстаток</field>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>Сумма</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты.Сотрудник КАК Сотрудник,
+	ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты.СуммаПриход КАК СуммаПриход,
+	ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты.СуммаРасход КАК СуммаРасход,
+	ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
+	ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток
+ИЗ
+	РегистрНакопления.ВКМ_ВзаиморасчетыССотрудниками.ОстаткиИОбороты(&amp;НачалоПериода, &amp;КонецПериода,,,
+		Сотрудник = &amp;Сотрудник) КАК ВКМ_ВзаиморасчетыССотрудникамиОстаткиИОбороты</query>
+	</dataSet>
+	<totalField>
+		<dataPath>СуммаКонечныйОстаток</dataPath>
+		<expression>Сумма(СуммаКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачальныйОстаток</dataPath>
+		<expression>Сумма(СуммаНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаПриход</dataPath>
+		<expression>Сумма(СуммаПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаРасход</dataPath>
+		<expression>Сумма(СуммаРасход)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Сотрудник</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сотрудник</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаКонечныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачальныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаПриход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаРасход</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Сотрудник</dcscor:parameter>
+					<dcsset:userSettingID>086e7968-5ef1-4f3f-a5d3-2593926d3f9c</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>a59059a7-722e-46b1-a451-3060314106f5</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcsset:userSettingID>2fe7e3a8-394a-415d-ab3a-0f639cff71ab</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
