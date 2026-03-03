@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧасовКОплате</dataPath>
+			<field>ЧасовКОплате</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентОтВыплат</dataPath>
+			<field>ПроцентОтВыплат</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент от выплат</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВКМ_ВыполненныеСотрудникомРаботы.Сотрудник КАК Сотрудник,
+	ВКМ_ВыполненныеСотрудникомРаботы.ЧасовКОплате КАК ЧасовКОплате,
+	СУММА(ВКМ_ВыполненныеСотрудникомРаботы.СуммаКОплате / ВКМ_ВыполненныеКлиентуРаботы.СуммаКОплате * 100) КАК
+		ПроцентОтВыплат
+ИЗ
+	РегистрНакопления.ВКМ_ВыполненныеСотрудникомРаботы КАК ВКМ_ВыполненныеСотрудникомРаботы
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ВКМ_ВыполненныеКлиентуРаботы КАК ВКМ_ВыполненныеКлиентуРаботы
+		ПО ВКМ_ВыполненныеСотрудникомРаботы.Регистратор.Договор = ВКМ_ВыполненныеКлиентуРаботы.Договор
+ГДЕ
+	ВКМ_ВыполненныеСотрудникомРаботы.Период = &amp;Период
+	И ВКМ_ВыполненныеСотрудникомРаботы.Сотрудник = &amp;Сотрудник
+СГРУППИРОВАТЬ ПО
+	ВКМ_ВыполненныеСотрудникомРаботы.Сотрудник,
+	ВКМ_ВыполненныеСотрудникомРаботы.ЧасовКОплате</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ПроцентОтВыплат</dataPath>
+		<expression>Сумма(ПроцентОтВыплат)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧасовКОплате</dataPath>
+		<expression>Сумма(ЧасовКОплате)</expression>
+	</totalField>
+	<parameter>
+		<name>Сотрудник</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Сотрудник</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Пользователи</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сотрудник</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПроцентОтВыплат</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЧасовКОплате</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Сотрудник</dcscor:parameter>
+					<dcsset:userSettingID>83125e2c-e5a0-422d-9833-82197ce0b863</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>7da9cdbb-3857-4c87-8deb-061ba8e73530</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
