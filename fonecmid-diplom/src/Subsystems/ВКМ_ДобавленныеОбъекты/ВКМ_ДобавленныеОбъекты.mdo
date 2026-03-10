@@ -22,4 +22,10 @@
   <content>CalculationRegister.ВКМ_ДополнительныеНачисления</content>
   <content>CalculationRegister.ВКМ_Удержания</content>
   <content>InformationRegister.ВКМ_УсловияОплатыСотрудников</content>
+  <content>DataProcessor.ВКМ_МассовоеСозданиеАктов</content>
+  <content>Report.ВКМ_ВыработкаСпециалистов</content>
+  <content>Report.ВКМ_АнализВыставленныхАктов</content>
+  <content>Report.ВКМ_РасчетыССотрудниками</content>
+  <content>Catalog.Контрагенты</content>
+  <content>Catalog.Пользователи</content>
 </mdclass:Subsystem>
